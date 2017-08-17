@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="./../../Content/images/logoIcon.ico">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="./../../Content/bootstrap/js/bootstrap.min.js"></script>
+	<script src="./../../Content/js/libs/modernizr-2.5.3.min.js"></script>
+	<script src="./../../Content/js/script.js"></script>
+	<script src="./../../Content/js/login-register.js"></script>
+
+
+	<link rel="stylesheet" href="./../../Content/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./../../Content/style.css">
+	<link rel="stylesheet" href="./../../Content/font-awesome-4.7.0/css/font-awesome.min.css">
+
+
+	<title>Open Facebook</title>
+</head>
+
+
+<body>
+	<header>
+
+		<div class="modal fade login" id="loginModal">
+			<div class="modal-dialog login animated">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Escribe lo que quieras...</h4>
+					</div>
+					<div class="modal-body">
+						<div class="box">
+							<div class="content registerBox">
+								<div class="form">
+									<form method="post" html="{:multipart=>true}" data-remote="true" accept-charset="UTF-8">
+										<textarea id="post" class="form-control" rows="10" type="text" placeholder="Nombre" name="nombre"> </textarea>
+										<br/><br/><input class="btn btn-default btn-register" onclick="postear();" type="submit" value="Postear" name="commit">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #572828">
+			<div class="container">
+				<div class="navbar-header">
+					<div class="pull-left">
+						<div class="navbar-btn">
+							<a href="/examen2/Views/Home/"><img style="width: 35px;height: 35px;" src="./../../Content/images/logo.png" class="logo-css" alt="Dispute Bills" /> </a>
+							<a rel="nofollow" rel="noreferrer" class="navbar-style" href="/examen2/Views/Home">Open Facebook</a>
+						</div>
+						<div class="pull-right" id="lado_derecho">
+							<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#becomeamember">
+         <i class="fa fa-sign-in"></i>
+         <span class="hidden-sm hidden-xs">Registrarse</span>
+         </button>
+							<button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#login">
+         <i class="fa fa-lock"></i>
+        <span class="hidden-sm hidden-xs">Iniciar sesión</span>
+        </button>
+						</div>
+					</div>
+				</div>
+		</nav>
+
+		<div class="pull-right" id="reemplazo" style="display: none">
+			<label for="" style="color:blanchedalmond" id="name"></label>
+			<a class="btn btn-primary navbar-btn" data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();"><i class="fa fa-list-alt" style="margin-right: 3px;"></i>Nuevo Post</a>
+
+			<a class="btn btn-primary navbar-btn" data-toggle="modal" href="javascript:void(0)" onclick="cerrarSesion();"><i class="fa fa-sign-out" style="margin-right: 3px;"></i>Cerrar sesión</a>
+
+
+		</div>
+
+	</header>
+
+	<div class="container">
+
+		<ol class="breadcrumb">
+			<li><a href="/examen2/Views/Home/">Muro de Open Facebook</a></li>
+		</ol>
+
+		<div class="container-fluid">
+			<div class="row" id="main">
+				<h2>Noticias y novedados de tu muro</h2>
+				<hr />
+
+
+			</div>
+
+
+		</div>
+
+		<!--Acá se carga el footer-->
+		<footer data-load="./../Shared/footer.html">
+		</footer>
+
+		<script>
+			$(function () {
+				window.onload = verificarSesion();
+				window.onload = getPost();
+			})
+		</script>
+
+		<script>
+			var anchor = document.querySelectorAll('button');
+
+			[].forEach.call(anchor, function (anchor) {
+				var open = false;
+				anchor.onclick = function (event) {
+					event.preventDefault();
+					if (!open) {
+						this.classList.add('close');
+						open = true;
+					}
+					else {
+						this.classList.remove('close');
+						open = false;
+					}
+				}
+			});
+		</script>
+
+		<script>
+
+		</script>
+
+
+
+</body>
+
+</html>
